@@ -1,0 +1,18 @@
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+
+#myForm{
+	max-width:300px;
+	padding:25px;
+	border: 1px dotted lightgray;
+	margin-left: 10px;
+}
+
+#myForm input, textarea, select{
+	margin-bottom: 5px;
+}

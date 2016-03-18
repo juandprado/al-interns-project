@@ -1,0 +1,26 @@
+<div class="panel" ng-show="panel.isSelected(3)">
+		<h4>Reviews</h4>
+		<blockquote ng-repeat="review in product.reviews">
+			<b>{{review.stars}} Stars </b>
+			{{review.body}}
+			<br>
+			<cite>-{{review.author}}</cite>
+		</blockquote>
+		
+		<div id="myForm">
+			<form class="form-group" name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+				<select class="form-control" ng-model="reviewCtrl.review.stars" required>
+					<option value="1">1 star</option>
+					<option value="2">2 star</option>
+					<option value="3">3 star</option>
+					<option value="4">4 star</option>
+					<option value="5">5 star</option>
+				</select>
+				<textarea class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
+				<label>by:</label>
+				<input class="form-control" ng-model="reviewCtrl.review.author" type="email" required />
+				<div ng-hide="reviewForm.$valid"> <h4>  Dude! your reviewForm is {{reviewForm.$valid}}! </h4></div>
+				<input class="form-control" type="submit" value="Submit" ng-disabled="!reviewForm.$valid" class="btn btn-default" ng-class="{'btn-success': reviewForm.$valid}" />
+			</form>
+		</div>
+	</div>

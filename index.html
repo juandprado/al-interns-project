@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<!-- Formatear con Filtros -->
+	<!-- Receta: {{data | filter:options}}-->
+	<!-- Uppercase and lowercase: {{data | uppercase}} -->
+	<!-- Limit to: {{data | limitTo:8}} -->
+	<!-- Order by descending: {{data | orderBy:'-price'}} -->
+	<body ng-controller="StoreController as store">
+		<div ng-repeat="product in store.products | orderBy:'name'">
+			<!-- <h1 class="pull-right"></h1> -->
+			
+			<!--h3 ng-include="'product-title.html'"-->
+			<!--/h3-->
+			<h3><product-title> </product-title>
+			</h3>
+			<p>{{product.description}}</p>
+			<p><img ng-src="{{product.images[0].thumb}}"/></p>
+			<product-panels>
+			</product-panels>
+			<button ng-show="product.canPurchase"> Add to Cart </button>			
+		</div>
+	</body>
+
+</html>
+
+<script src="jquery-2.2.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap.min.js"></script>
+
+<script type="text/javascript" src="angular.min.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/javascript" src="products.js"></script>
