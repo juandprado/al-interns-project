@@ -1,0 +1,31 @@
+h1 {
+  background-color: #CECCCC;
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+  background-color: #CECCCC;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+nav h2, nav ul {
+  margin: 0;
+  background-color: #EBE4E9;
+}
+
+nav li {
+  list-style: none;
+  color: #369;
+  display: inline-block;
+  margin-left: 20px;
+  background-color: #EBE9E9;
+}
+
+nav li a {
+  text-decoration: none;
+  background-color: inherit;
+  color: inherit;
+}
