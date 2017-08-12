@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Movie } from './movie';
+import { MovieService } from './movie.service';
+
+import { People } from './people';
+import { PeopleService } from './people.service';
 
 @Component({
   selector: 'my-dashboard',
@@ -9,13 +12,22 @@ import { HeroService } from './hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  movies: Movie[] = [];
+  movieTheaters: Movie[]= []
+  movieTop: Movie[]= []
+  people: People[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private movieService: MovieService, private peopleService: PeopleService) { }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+    this.movieService.getMovies()
+      .then(movies => this.movies = movies.slice(0, 4));
+    this.movieService.getMoviesTheaters()
+      .then(movieTheaters => this.movieTheaters = movieTheaters.slice(0, 4));
+    this.movieService.getMoviesTop()
+      .then(movieTop => this.movieTop = movieTop.slice(0, 4));
+    this.peopleService.getPeople()
+      .then(people => this.people = people.slice(0, 4));
   }
 
 }

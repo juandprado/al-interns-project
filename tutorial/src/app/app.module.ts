@@ -5,33 +5,35 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule }     from './app-routing.module';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
-
 import { AppComponent }  from './app.component';
-import { HeroesComponent} from './heroes.component';
+import { MoviesComponent} from './movies.component';
 import { DashboardComponent} from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroService } from './hero.service';
-import { HeroSearchComponent } from './hero-search.component'
+import { MovieDetailComponent } from './movie-detail.component';
+import { MovieService } from './movie.service';
+import { MovieSearchComponent } from './movie-search.component'
+
+import { PeopleService } from './people.service';
+import { PeopleDetailComponent } from './people-detail.component';
+
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   imports:      [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    HeroesComponent,
+    MoviesComponent,
     DashboardComponent,
-    HeroDetailComponent,
-    HeroSearchComponent
+    MovieDetailComponent,
+    MovieSearchComponent,
+    PeopleDetailComponent,
+    SafePipe
   ],
   bootstrap:    [ AppComponent ],
-  providers: [ HeroService ]
+  providers: [ MovieService, PeopleService ]
 })
 export class AppModule { }
